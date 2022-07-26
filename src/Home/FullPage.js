@@ -109,18 +109,23 @@ export default function FullPage() {
     });
   }
   const submitForm = () => {
-    fetch('https://public.herotofu.com/v1/5b7adbd0-0c87-11ed-9bdb-53c785fa3343', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(obj)
-    })
+    (async () => {
+      const rawResponse = await fetch('https://public.herotofu.com/v1/5b7adbd0-0c87-11ed-9bdb-53c785fa3343', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj)
+      });
+      const response = await rawResponse.json();
+      let redirectUrl = response.redirect;
+      const fullUrl = `${redirectUrl}?name=${obj.full_name}`;
+      return window.location.replace(fullUrl);
+    })();
   }
 
   const submitBtnHandler = () => {
-    console.log(obj);
     submitForm();  
     swal({ //show success message on completion
       title: "",
