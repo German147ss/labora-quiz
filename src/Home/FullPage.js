@@ -27,7 +27,7 @@ const data = [
     title: '¿Cuál es tu edad?',
     id: 'age',
     link: 'objective',
-    type: InputNumberType,
+    type: InputType,
     i: 3
   },
   {
@@ -51,7 +51,7 @@ const data = [
     id: 'wish',
     link: 'wishBlock',
     type: RadioType,
-    options: ['Apoyar a mi familia','Mudarme a otro lugar','Matrimonio','Tener hijos','Empezar mi propio negocio','Salir de una deuda','Otro'],
+    options: ['Apoyar a mi familia','Mudarme a otro lugar','Empezar mi propio negocio','Salir de una deuda','Otro'],
     i: 6
   },
   {
@@ -59,7 +59,7 @@ const data = [
     id: 'wishBlock',
     link: 'situation',
     type: RadioType,
-    options: ['No tengo sueños','No tengo dinero','No tengo tiempo','No tengo ideas','No tengo esperanza','Otro'],
+    options: ['Edad','Tiempo','No saber por donde arrancar','Dinero','Otro'],
     i: 7
   },
   {
@@ -67,13 +67,13 @@ const data = [
     id: 'situation',
     link: 'studyTIme',
     type: RadioType,
-    options: ['Estoy listo para comenzar a trabajar.','Ya inicié mi camino pero me encuentro un poco perdido.','Voy a iniciar o estoy buscando cambiar de carrera.'],
+    options: ['Estoy listo para trabajar.','Ya inicié mi camino pero me encuentro un poco perdido.','Estoy buscando cambiar de carrera.'],
     i: 8
   },
   {
     title: '¿Cuánto tiempo tienes en la semana para estudiar?',
     id: 'studyTIme',
-    link: '',
+    link: '.',
     type: RadioType,
     options: ['5 horas por semana','10 horas por semana','20 horas por semana','40 horas por semana'],
     i: 9
