@@ -5,30 +5,6 @@ body {
   background-color: @home-bg-color !important;
 }
 
-
-
-// #typeform-input {
-//   display: block;
-//     width: 100%;
-//     font-family: inherit;
-//     color: rgb(38, 38, 38);
-//     -webkit-appearance: none;
-//     transform: translateZ(0px);
-//     font-size: 30px;
-//     line-height: 38px;
-//     -webkit-font-smoothing: antialiased;
-//     padding: 0px 0px 8px;
-//     border-width: initial;
-//     border-style: none;
-//     border-color: initial;
-//     border-image: initial;
-//     outline: none !important; 
-//     border-radius: 0px;
-//     border-bottom: 1px solid gray;
-//     transition: box-shadow 0.2s ease 0s;
-//     background: none;
-// }
-
 .typeform-input { 
   margin-bottom: 5% !important;
   border: none !important;
@@ -36,11 +12,27 @@ body {
   background-color: @home-bg-color !important;
   font-size: x-large !important;
   padding: 30px 0px !important;
+  border-bottom: 1px solid @home-text-color !important; 
+  color: @home-text-color !important;
+}
+
+.typeform-radio {
+  color: @home-text-color !important;
+  border: 1px @home-text-color solid !important;
+  padding: 10px;
+  font-size: x-large !important;
+  margin-bottom: 2% !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px !important;
+}
+
+.typeform-radio:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .typeform-input:focus {
   box-shadow: none !important;
-  border-bottom: 1px solid @home-text-color !important 
+  border-bottom: 2px solid @home-text-color !important; 
 }
 
 .App-header {
@@ -55,17 +47,19 @@ body {
 }
 
 #enter-btn {
-  background-color: rgb(29, 25, 25);
+  background-color: rgb(192, 41, 66);
   color:  white;
   border-radius: 5px;
   font-weight: bold;
+  border-color: rgb(192, 41, 66);
 }
 
 #submit-btn {
-    background-color: blue;
+    background-color: rgb(192, 41, 66);
   color:  white;
   border-radius: 5px;
   font-weight: bold;
+  border-color: rgb(192, 41, 66);
 }
 
 .home-page-wrapper {
@@ -133,7 +127,7 @@ body {
     width: 54%;
     max-width: 600px;
     min-height: 320px;
-    color: #0D1A26;
+    color: #ffffff;
     h1 {
       font-size: 68px;
       font-weight: 600;
@@ -372,7 +366,7 @@ svg {
 
 .press-enter {
   font-size: 12px;
-  color: black;
+  color: #fff;
 }
 
 .bold {
@@ -380,10 +374,12 @@ svg {
 }
 
 .count {
+  color: #ffffff;
   font-size: 12px;
 }
 
 .title {
+  color: #ffffff;
   font-size: 24px;
   margin-bottom: 5%;
 }

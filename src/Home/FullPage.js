@@ -4,31 +4,79 @@ import Questions from './Questions';
 import swal from 'sweetalert';
 import './static/style';
 
+export const InputType = 'input';
+export const RadioType = 'radio';
+export const InputNumberType = 'number';
 // => in the render() method of your app
 const data = [
   {
-    title: 'lets start with your first name? *',
-    id: 'first_name',
-    link: 'last_name',
+    title: 'Nombre y apellido *',
+    id: 'full_name',
+    link: 'phone',
+    type: InputType,
     i: 1
   },
   {
-    title: 'and your last name? *',
-    id: 'last_name',
-    link: 'city',
+    title: 'Numero de whatsapp *',
+    id: 'phone',
+    link: 'age',
+    type: InputType,
     i: 2
   },
   {
-    title: 'what city and state are you from? (or put a zipcode) *',
-    id: 'city',
-    link: 'occupation',
+    title: '¿Cuál es tu edad?',
+    id: 'age',
+    link: 'objective',
+    type: InputNumberType,
     i: 3
   },
   {
-    title: 'got a job? or are you a student? *',
-    id: 'occupation',
-    link: '',
+    title: '¿Cuál es tu objetivo profesional?',
+    id: 'objective',
+    link: 'salary',
+    type: RadioType,
+    options: ['Menor carga horaria', 'Crecimiento constante', 'Trabajar desde casa', 'Salario más alto'],
     i: 4
+  },
+  {
+    title: '¿Cuál es tu salario actualmente?',
+    id: 'salary',
+    link: 'wish',
+    type: RadioType,
+    options: ['Menos de $200', 'Entre $200 y $800', 'Entre $1000 y $3000', 'Más de $3000'],
+    i: 5
+  },
+  {
+    title: '¿Tienes un cambio de vida importante para el que deseas prepararte?',
+    id: 'wish',
+    link: 'wishBlock',
+    type: RadioType,
+    options: ['Apoyar a mi familia','Mudarme a otro lugar','Matrimonio','Tener hijos','Empezar mi propio negocio','Salir de una deuda','Otro'],
+    i: 6
+  },
+  {
+    title: '¿Qué te impide hacer tus sueños realidad?',
+    id: 'wishBlock',
+    link: 'situation',
+    type: RadioType,
+    options: ['No tengo sueños','No tengo dinero','No tengo tiempo','No tengo ideas','No tengo esperanza','Otro'],
+    i: 7
+  },
+  {
+    title: 'Selecciona la opción que mejor se aplique a tu situación:',
+    id: 'situation',
+    link: 'studyTIme',
+    type: RadioType,
+    options: ['Estoy listo para comenzar a trabajar.','Ya inicié mi camino pero me encuentro un poco perdido.','Voy a iniciar o estoy buscando cambiar de carrera.'],
+    i: 8
+  },
+  {
+    title: '¿Cuánto tiempo tienes en la semana para estudiar?',
+    id: 'studyTIme',
+    link: '',
+    type: RadioType,
+    options: ['5 horas por semana','10 horas por semana','20 horas por semana','40 horas por semana'],
+    i: 9
   }
 ]
 
@@ -55,20 +103,28 @@ export default function FullPage() {
 
 
   const inputDataHandler = (name, value) => {
-    console.log(name, value)
-    console.log(obj)
     setObj({
       ...obj,
       [name]: value
     });
   }
+  const submitForm = () => {
+    fetch('https://public.herotofu.com/v1/5b7adbd0-0c87-11ed-9bdb-53c785fa3343', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj)
+    })
+  }
 
   const submitBtnHandler = () => {
     console.log(obj);
-    //API call here
+    submitForm();  
     swal({ //show success message on completion
       title: "",
-      text: "Thanks for completing the survey !!",
+      text: "Gracías por completar la encuesta!",
       icon: "success",
       dangerMode: false,
     })
