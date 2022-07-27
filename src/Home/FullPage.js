@@ -47,7 +47,7 @@ const data = [
     i: 5
   },
   {
-    title: '¿Tienes un cambio de vida importante para el que deseas prepararte?',
+    title: '¿Tienes un cambio de vida importante en el que te preparas?',
     id: 'wish',
     link: 'wishBlock',
     type: RadioType,
@@ -63,7 +63,7 @@ const data = [
     i: 7
   },
   {
-    title: 'Selecciona la opción que mejor se aplique a tu situación:',
+    title: '¿Que opción que mejor se aplica a tu situación?',
     id: 'situation',
     link: 'studyTIme',
     type: RadioType,
@@ -141,6 +141,7 @@ export default function FullPage() {
       <SectionsContainer {...options}>
         {
           data.map((item, i) => {
+            console.log(item, i)
             return (
               <Section key={i} >
                 <div>
@@ -151,6 +152,7 @@ export default function FullPage() {
                       isSubmit={i == (data.length - 1) ? true : false}
                       inputDataHandler={inputDataHandler}
                       submitBtnHandler={submitBtnHandler}
+                      data={data}
                     />
                   </header>
                 </div>

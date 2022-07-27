@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Input, Icon, Button } from 'antd';
 import { isMobile } from 'react-device-detect';
-import { InputNumberType, InputType, RadioType } from './FullPage';
 
 export default function Questions({
   item,
   index,
   isSubmit,
   inputDataHandler,
-  submitBtnHandler
+  submitBtnHandler,
+  data,
 }) {
   const [value, setValue] = useState({
   });
@@ -21,7 +21,7 @@ export default function Questions({
   const clickHandler = (item) => {
     location.href = `#${item.link}`;
     setTimeout(() => {
-      if (!item.options) {
+      if (data[index + 1] && !data[index + 1].options) {
         document.getElementById(item.i.toString()).focus();
       }
     }, 1100);
@@ -61,14 +61,15 @@ export default function Questions({
       </div>
       {(() => {
         if (item.options) {
-          return item.options.map((option) => (
+          return item.options.map((option, indexOption) => (
             <div
+              key={`${index}-${indexOption}`}
               className="typeform-radio">
               <input 
                   id={option}
                   type="radio"
                   name={item.id} 
-                  key={index}
+                  
                   value={option} 
                   defaultChecked={false}
                   onClick={(e) => radioButtonClicked(e, item)}
