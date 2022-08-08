@@ -29,21 +29,21 @@ const data = [
     link: 'objective',
     type: InputType,
     i: 3
-  },
+  }/*,,
   {
     title: '¿Cuál es tu objetivo profesional?',
     id: 'objective',
     link: 'salary',
     type: RadioType,
-    options: ['Menor carga horaria', 'Crecimiento constante', 'Trabajar desde casa', 'Salario más alto'],
+    options: ['Crecimiento constante', 'Trabajar desde casa', 'Salario más alto'],
     i: 4
-  },
+  }
   {
     title: '¿Cuál es tu salario actualmente?',
     id: 'salary',
     link: 'wish',
     type: RadioType,
-    options: ['Menos de $200', 'Entre $200 y $800', 'Entre $1000 y $3000', 'Más de $3000'],
+    options: ['Menos de $200', 'Entre $200 y $1000', 'Más de $1000'],
     i: 5
   },
   {
@@ -51,7 +51,7 @@ const data = [
     id: 'wish',
     link: 'wishBlock',
     type: RadioType,
-    options: ['Apoyar a mi familia','Mudarme a otro lugar','Empezar mi propio negocio','Salir de una deuda','Otro'],
+    options: ['Apoyar a mi familia','Mudarme a otro lugar','Salir de una deuda','Otro'],
     i: 6
   },
   {
@@ -59,7 +59,7 @@ const data = [
     id: 'wishBlock',
     link: 'situation',
     type: RadioType,
-    options: ['Edad','Tiempo','No saber por donde arrancar','Dinero','Otro'],
+    options: ['Tiempo','No se por donde arrancar','Dinero','Otro'],
     i: 7
   },
   {
@@ -75,9 +75,9 @@ const data = [
     id: 'studyTIme',
     link: '.',
     type: RadioType,
-    options: ['5 horas por semana','10 horas por semana','20 horas por semana','40 horas por semana'],
+    options: ['5 horas por semana','10 horas por semana','20 horas por semana o mas'],
     i: 9
-  }
+  }*/
 ]
 
 const anchorFunc = (anchor_data) => { // return array of anchor tags
@@ -141,7 +141,6 @@ export default function FullPage() {
       <SectionsContainer {...options}>
         {
           data.map((item, i) => {
-            console.log(item, i)
             return (
               <Section key={i} >
                 <div>

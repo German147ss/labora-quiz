@@ -19,16 +19,28 @@ export default function Questions({
   }, []);
 
   const clickHandler = (item) => {
-    location.href = `#${item.link}`;
-    setTimeout(() => {
-      if (data[index + 1] && !data[index + 1].options) {
+    if (isSubmit) {
+      submitHandler();
+    }
+    if (data[index + 1] && !data[index + 1].options) {
+      moveToSection(item.link);
+      setTimeout(() => {
         document.getElementById(item.i.toString()).focus();
+      }, 1140);
+    } /*else {
+      if (document.getElementById((item.i - 1).toString())) {
+        document.getElementById((item.i - 1).toString()).blur();
       }
-    }, 1100);
+      moveToSection(item.link);
+    }*/
   };
 
+  const moveToSection = (id) => {
+    console.log(`#${id}`);
+    location.href = `#${id}`;
+  }
+
   const inputHandler = (e, item) => {
-    
       setValue({
         ...value,
         [e.target.name]: e.target.value,
@@ -63,13 +75,12 @@ export default function Questions({
         if (item.options) {
           return item.options.map((option, indexOption) => (
             <div
-              key={`${index}-${indexOption}`}
+              key={`${index}-${indexOption}`}//prevent error with keys
               className="typeform-radio">
               <input 
                   id={option}
                   type="radio"
-                  name={item.id} 
-                  
+                  name={item.id}
                   value={option} 
                   defaultChecked={false}
                   onClick={(e) => radioButtonClicked(e, item)}
